@@ -6,15 +6,15 @@
 /*   By: akuburas <akuburas@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 16:05:43 by akuburas          #+#    #+#             */
-/*   Updated: 2023/10/24 16:34:08 by akuburas         ###   ########.fr       */
+/*   Updated: 2023/10/24 17:08:00 by akuburas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 char	ft_toupper(char c)
 {
-	if (c >= 'a' && c < 'z')
+	if (c >= 97 && c <= 122)
 	{
-		return (c - ('a' - 'Z'));
+		return (c - 32);
 	}
 	else
 	{
