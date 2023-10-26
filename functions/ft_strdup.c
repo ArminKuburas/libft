@@ -1,35 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akuburas <akuburas@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/26 15:03:34 by akuburas          #+#    #+#             */
-/*   Updated: 2023/10/26 15:15:30 by akuburas         ###   ########.fr       */
+/*   Created: 2023/10/26 15:40:19 by akuburas          #+#    #+#             */
+/*   Updated: 2023/10/26 15:41:47 by akuburas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	atoi(const char *str)
+#include "libft.h"
+
+char *ft_strdup(const char *s)
 {
-	int	result;
-	int	sign;
-
-	result = 0;
-	sign = 1;
-
-	while (*str == ' ' || (*str >= '\t' && *str <= '\r'))
-		str++;
-	if (*str == '-' || *str == "+")
-	{
-		if (*str == '-')
-			sign = -1;
-		str++;
-	}
-	while (*str >= '0' && *str <= '9')
-	{
-		result = result * 10 + (*str - '0');
-		str++;
-	}
-	return (result * sign);
+	size_t len;
+	char *new_str;
 }

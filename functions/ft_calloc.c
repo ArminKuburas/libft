@@ -1,35 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akuburas <akuburas@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/26 15:03:34 by akuburas          #+#    #+#             */
-/*   Updated: 2023/10/26 15:15:30 by akuburas         ###   ########.fr       */
+/*   Created: 2023/10/26 15:20:27 by akuburas          #+#    #+#             */
+/*   Updated: 2023/10/26 15:39:29 by akuburas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	atoi(const char *str)
+#include <stdlib.h>
+#include "libft.h"
+
+void	*ft_calloc(size_t count, size_t size)
 {
-	int	result;
-	int	sign;
+	size_t	total_size;
+	void	*ptr;
 
-	result = 0;
-	sign = 1;
-
-	while (*str == ' ' || (*str >= '\t' && *str <= '\r'))
-		str++;
-	if (*str == '-' || *str == "+")
-	{
-		if (*str == '-')
-			sign = -1;
-		str++;
-	}
-	while (*str >= '0' && *str <= '9')
-	{
-		result = result * 10 + (*str - '0');
-		str++;
-	}
-	return (result * sign);
+	total_size = count * size;
+	if (count != 0 && total_size / count != size)
+		return (NULL);
+	ptr = malloc(total_size);
+	if (ptr)
+		ft_memset(ptr, 0, total_size);
+	return (ptr);
 }
