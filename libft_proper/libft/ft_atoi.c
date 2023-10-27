@@ -1,32 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akuburas <akuburas@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/26 12:05:12 by akuburas          #+#    #+#             */
-/*   Updated: 2023/10/27 07:39:38 by akuburas         ###   ########.fr       */
+/*   Created: 2023/10/26 15:03:34 by akuburas          #+#    #+#             */
+/*   Updated: 2023/10/27 10:37:55 by akuburas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
+int	ft_atoi(const char *str)
 {
-	size_t	needle_len;
+	int	result;
+	int	sign;
 
-	needle_len = ft_strlen(needle);
-	if (needle_len == 0)
+	result = 0;
+	sign = 1;
+	while (*str == ' ' || (*str >= '\t' && *str <= '\r'))
+		str++;
+	if (*str == '-' || *str == '+')
 	{
-		return ((char *)haystack);
+		if (*str == '-')
+			sign = -1;
+		str++;
 	}
-	while (*haystack != '\0' && len >= needle_len)
+	while (*str >= '0' && *str <= '9')
 	{
-		if (*haystack == *needle && ft_strncmp(haystack, needle, needle_len))
-			return ((char *)heystack);
-		haystack++;
-		len--;
+		result = result * 10 + (*str - '0');
+		str++;
 	}
-	return (NULL);
+	return (result * sign);
 }
