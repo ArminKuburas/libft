@@ -6,7 +6,7 @@
 /*   By: akuburas <akuburas@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 15:03:34 by akuburas          #+#    #+#             */
-/*   Updated: 2023/10/26 15:15:30 by akuburas         ###   ########.fr       */
+/*   Updated: 2023/10/27 07:36:04 by akuburas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ int	atoi(const char *str)
 
 	result = 0;
 	sign = 1;
-
 	while (*str == ' ' || (*str >= '\t' && *str <= '\r'))
 		str++;
 	if (*str == '-' || *str == "+")
