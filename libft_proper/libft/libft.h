@@ -6,7 +6,7 @@
 /*   By: akuburas <akuburas@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 07:40:02 by akuburas          #+#    #+#             */
-/*   Updated: 2023/10/27 10:38:25 by akuburas         ###   ########.fr       */
+/*   Updated: 2023/10/27 14:22:36 by akuburas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,7 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
 char	*ft_strrchr(const char *s, int c);
 char	ft_tolower(char c);
 char	ft_toupper(char c);
+char	*ft_substr( char const *s, unsigned int start, size_t len);
+char	*ft_strjoin(char const *s1, char const *s2);
+
 #endif
