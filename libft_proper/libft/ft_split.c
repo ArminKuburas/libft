@@ -6,7 +6,7 @@
 /*   By: akuburas <akuburas@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 09:15:30 by akuburas          #+#    #+#             */
-/*   Updated: 2023/10/30 14:12:15 by akuburas         ###   ########.fr       */
+/*   Updated: 2023/10/30 14:18:57 by akuburas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ static char	*substring_create(const char *str, int start, int finish)
 
 static void	free_result_array(char **result, int j)
 {
-	while (j > 0)
+	while (j >= 0)
 	{
 		free(result[j--]);
 	}
