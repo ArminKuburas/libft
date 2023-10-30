@@ -6,7 +6,7 @@
 /*   By: akuburas <akuburas@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 09:15:30 by akuburas          #+#    #+#             */
-/*   Updated: 2023/10/30 14:18:57 by akuburas         ###   ########.fr       */
+/*   Updated: 2023/10/30 15:34:29 by akuburas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ static void	free_result_array(char **result, int j)
 	free(result);
 }
 
-static void	split_string(char const *s, char c, char **result, int count)
+static int	split_string(char const *s, char c, char **result, int count)
 {
 	size_t	i;
 	int		j;
@@ -76,31 +76,35 @@ static void	split_string(char const *s, char c, char **result, int count)
 			if (!result[j])
 			{
 				free_result_array(result, j);
-				return (NULL);
+				return (1);
 			}
 			index = -1;
 			j++;
 		}
 		i++;
 	}
-	result[j] = NULL;
+	return (0);
 }
 
 char	**ft_split(char const *s, char c)
 {
 	int		count;
+	int		split_check;
 	char	**result;
 
-	result = (char **)malloc((count_substrings(s, c) + 1) * sizeof(char *));
+	count = count_substrings(s, c);
+	result = (char **)malloc((count + 1) * sizeof(char *));
 	if (!s || !result)
 		return (NULL);
-	count = count_substrings(s, c);
-	split_string(s, c, result, count);
-	return (result);
-	if (!result[count])
+	split_check = split_string(s, c, result, count);
+	if (split_check == 1)
 	{
 		free(result);
 		return (NULL);
 	}
-	return (result);
+	else
+	{
+		result[count] = NULL;
+		return (result);
+	}
 }
