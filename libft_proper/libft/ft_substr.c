@@ -6,7 +6,7 @@
 /*   By: akuburas <akuburas@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 12:01:58 by akuburas          #+#    #+#             */
-/*   Updated: 2023/10/27 12:12:19 by akuburas         ###   ########.fr       */
+/*   Updated: 2023/10/30 09:15:02 by akuburas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,5 @@ char	*ft_substr( char const *s, unsigned int start, size_t len)
 		return (NULL);
 	ft_memcpy(substr, s + start, len);
 	substr[len] = '\0';
-	return (substr); 
+	return (substr);
 }
