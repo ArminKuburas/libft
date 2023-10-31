@@ -6,7 +6,7 @@
 #    By: akuburas <akuburas@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/27 08:04:40 by akuburas          #+#    #+#              #
-#    Updated: 2023/10/31 09:26:22 by akuburas         ###   ########.fr        #
+#    Updated: 2023/10/31 16:05:19 by akuburas         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,8 +47,15 @@ SRCS = 	ft_atoi.c \
 		ft_putendl_fd.c \
 		ft_putnbr_fd.c \
 
-
 OBJS = ${SRCS:.c=.o}
+
+BONUS = ft_lstnew_bonus.c \
+		ft_lstadd_front_bonus.c \
+		ft_lstsize.c \
+		ft_lstlast.c \
+
+BONUS_OBJS = $(BONUS:.c=.o)
+
 HEAD = libft.h
 
 AR = ar rcs
@@ -68,11 +75,14 @@ ${NAME}: ${OBJS}
 	${CC} ${CFLAGS} -c $< -o $@
 
 clean:
-	${RM} ${OBJS}
+	${RM} ${OBJS} ${BONUS_OBJS}
 
 fclean: clean
 	${RM} ${NAME}
 
 re: fclean all
 
-.PHONY: all clean fclean re
+bonus: $(OBJS) $(BONUS_OBJS)
+		$(AR) $(NAME) $(OBJS) $(BONUS_OBJS)
+
+.PHONY: all clean fclean re bonus

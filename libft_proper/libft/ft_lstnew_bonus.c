@@ -1,35 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_lstnew_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akuburas <akuburas@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/31 09:09:58 by akuburas          #+#    #+#             */
-/*   Updated: 2023/10/31 10:33:21 by akuburas         ###   ########.fr       */
+/*   Created: 2023/10/31 10:03:46 by akuburas          #+#    #+#             */
+/*   Updated: 2023/10/31 11:32:02 by akuburas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr_fd(int n, int fd)
+t_list	*ft_lstnew(void *content)
 {
-	char	digit;
-	long	num;
+	t_list	*new_node;
 
-	num = (long)n;
-	if (n == 0)
-	{
-		write(fd, "0", 1);
-		return ;
-	}
-	if (num < 0)
-	{
-		write(fd, "-", 1);
-		num = -num;
-	}
-	if (n / 10)
-		ft_putnbr_fd(num / 10, fd);
-	digit = '0' + (num % 10);
-	write(fd, &digit, 1);
+	new_node = (t_list *)malloc(sizeof(t_list));
+	if (!new_node)
+		return (NULL);
+	new_node->content = content;
+	new_node->next = NULL;
+	return (new_node);
 }

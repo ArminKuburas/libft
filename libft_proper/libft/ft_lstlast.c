@@ -1,35 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akuburas <akuburas@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/31 09:09:58 by akuburas          #+#    #+#             */
-/*   Updated: 2023/10/31 10:33:21 by akuburas         ###   ########.fr       */
+/*   Created: 2023/10/31 16:03:20 by akuburas          #+#    #+#             */
+/*   Updated: 2023/10/31 16:04:49 by akuburas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr_fd(int n, int fd)
+t_list	*ft_lstlast(t_list *lst)
 {
-	char	digit;
-	long	num;
-
-	num = (long)n;
-	if (n == 0)
+	if (lst == NULL)
+		return (NULL);
+	while (lst->next != NULL)
 	{
-		write(fd, "0", 1);
-		return ;
+		lst = lst->next;
 	}
-	if (num < 0)
-	{
-		write(fd, "-", 1);
-		num = -num;
-	}
-	if (n / 10)
-		ft_putnbr_fd(num / 10, fd);
-	digit = '0' + (num % 10);
-	write(fd, &digit, 1);
+	return (lst);
 }
