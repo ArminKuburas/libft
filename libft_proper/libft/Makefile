@@ -6,7 +6,7 @@
 #    By: akuburas <akuburas@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/27 08:04:40 by akuburas          #+#    #+#              #
-#    Updated: 2023/10/31 08:11:16 by akuburas         ###   ########.fr        #
+#    Updated: 2023/10/31 08:52:06 by akuburas         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,6 +41,8 @@ SRCS = 	ft_atoi.c \
 		ft_split.c \
 		ft_itoa.c \
 		ft_strmapi.c \
+		ft_striteri.c \
+
 
 OBJS = ${SRCS:.c=.o}
 HEAD = libft.h
