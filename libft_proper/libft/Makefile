@@ -6,7 +6,7 @@
 #    By: akuburas <akuburas@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/27 08:04:40 by akuburas          #+#    #+#              #
-#    Updated: 2023/10/31 08:58:38 by akuburas         ###   ########.fr        #
+#    Updated: 2023/10/31 09:03:31 by akuburas         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,6 +43,7 @@ SRCS = 	ft_atoi.c \
 		ft_strmapi.c \
 		ft_striteri.c \
 		ft_putchar_fd.c \
+		ft_putstr_fd.c \
 
 
 OBJS = ${SRCS:.c=.o}
