@@ -6,15 +6,15 @@
 /*   By: akuburas <akuburas@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 16:29:46 by akuburas          #+#    #+#             */
-/*   Updated: 2023/10/27 11:32:24 by akuburas         ###   ########.fr       */
+/*   Updated: 2023/11/01 13:21:49 by akuburas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_tolower(int c)
 {
-	if (c >= 65 && c <= 90)
+	if (c >= 'A' && c <= 'Z')
 	{
-		return (c + 32);
+		return (c + ('a' - 'A'));
 	}
 	else
 	{

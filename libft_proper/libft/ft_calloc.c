@@ -6,7 +6,7 @@
 /*   By: akuburas <akuburas@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 15:20:27 by akuburas          #+#    #+#             */
-/*   Updated: 2023/11/01 08:58:42 by akuburas         ###   ########.fr       */
+/*   Updated: 2023/11/01 13:17:03 by akuburas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ void	*ft_calloc(size_t count, size_t size)
 	if (count != 0 && total_size / count != size)
 		return (NULL);
 	ptr = malloc(total_size);
+	if (!ptr)
+		return (NULL);
 	if (ptr)
 		ft_memset(ptr, 0, total_size);
 	return (ptr);
