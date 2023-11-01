@@ -6,7 +6,7 @@
 /*   By: akuburas <akuburas@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 09:15:30 by akuburas          #+#    #+#             */
-/*   Updated: 2023/10/30 15:34:29 by akuburas         ###   ########.fr       */
+/*   Updated: 2023/11/01 08:56:50 by akuburas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,9 +92,11 @@ char	**ft_split(char const *s, char c)
 	int		split_check;
 	char	**result;
 
+	if (!s)
+		return (NULL);
 	count = count_substrings(s, c);
 	result = (char **)malloc((count + 1) * sizeof(char *));
-	if (!s || !result)
+	if (!result)
 		return (NULL);
 	split_check = split_string(s, c, result, count);
 	if (split_check == 1)

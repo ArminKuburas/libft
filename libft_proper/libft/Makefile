@@ -6,7 +6,7 @@
 #    By: akuburas <akuburas@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/27 08:04:40 by akuburas          #+#    #+#              #
-#    Updated: 2023/10/31 16:05:19 by akuburas         ###   ########.fr        #
+#    Updated: 2023/11/01 12:03:32 by akuburas         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,8 +51,13 @@ OBJS = ${SRCS:.c=.o}
 
 BONUS = ft_lstnew_bonus.c \
 		ft_lstadd_front_bonus.c \
-		ft_lstsize.c \
-		ft_lstlast.c \
+		ft_lstsize_bonus.c \
+		ft_lstlast_bonus.c \
+		ft_lstadd_back_bonus.c \
+		ft_lstdelone_bonus.c \
+		ft_lstclear_bonus.c \
+		ft_lstiter_bonus.c \
+		ft_lstmap_bonus.c \
 
 BONUS_OBJS = $(BONUS:.c=.o)
 
