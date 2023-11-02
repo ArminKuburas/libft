@@ -6,7 +6,7 @@
 /*   By: akuburas <akuburas@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 15:20:27 by akuburas          #+#    #+#             */
-/*   Updated: 2023/11/01 13:17:03 by akuburas         ###   ########.fr       */
+/*   Updated: 2023/11/02 12:32:30 by akuburas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	*ft_calloc(size_t count, size_t size)
 	if (!count || !size)
 		return (ft_calloc(1, 1));
 	total_size = count * size;
-	if (count != 0 && total_size / count != size)
+	if ((count != 0 && total_size / count != size) || total_size > 2147483648)
 		return (NULL);
 	ptr = malloc(total_size);
 	if (!ptr)
