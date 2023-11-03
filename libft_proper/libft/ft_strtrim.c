@@ -6,7 +6,7 @@
 /*   By: akuburas <akuburas@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 15:56:36 by akuburas          #+#    #+#             */
-/*   Updated: 2023/10/30 08:50:50 by akuburas         ###   ########.fr       */
+/*   Updated: 2023/11/03 15:04:31 by akuburas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	while (s1[start] && is_in_set(s1[start], set))
 		start++;
 	end = ft_strlen(s1);
-	while (end > start && is_in_set(s1[end -1], set))
+	while (end > start && is_in_set(s1[end - 1], set))
 		end--;
 	len = end - start;
 	result = (char *)malloc(len + 1);

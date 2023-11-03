@@ -6,7 +6,7 @@
 /*   By: akuburas <akuburas@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 09:15:30 by akuburas          #+#    #+#             */
-/*   Updated: 2023/11/01 08:56:50 by akuburas         ###   ########.fr       */
+/*   Updated: 2023/11/03 15:05:49 by akuburas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,9 +52,12 @@ static void	free_result_array(char **result, int j)
 {
 	while (j >= 0)
 	{
-		free(result[j--]);
+		free(result[j]);
+		result[j] = NULL;
+		j--;
 	}
 	free(result);
+	result = NULL;
 }
 
 static int	split_string(char const *s, char c, char **result, int count)
@@ -101,7 +104,6 @@ char	**ft_split(char const *s, char c)
 	split_check = split_string(s, c, result, count);
 	if (split_check == 1)
 	{
-		free(result);
 		return (NULL);
 	}
 	else
