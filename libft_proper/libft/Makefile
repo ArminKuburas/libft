@@ -6,7 +6,7 @@
 #    By: akuburas <akuburas@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/27 08:04:40 by akuburas          #+#    #+#              #
-#    Updated: 2023/11/03 14:54:50 by akuburas         ###   ########.fr        #
+#    Updated: 2023/11/03 15:44:04 by akuburas         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -58,7 +58,6 @@ BONUS = ft_lstnew_bonus.c \
 		ft_lstclear_bonus.c \
 		ft_lstiter_bonus.c \
 		ft_lstmap_bonus.c \
-		${SRCS}
 
 BONUS_OBJS = $(BONUS:.c=.o)
 
@@ -81,16 +80,16 @@ ${NAME}: ${OBJS}
 	${CC} ${CFLAGS} -c $< -o $@
 
 clean:
-	${RM} ${OBJS} ${BONUS_OBJS}
+	${RM} ${OBJS} ${BONUS_OBJS} .bonus
 
 fclean: clean
 	${RM} ${NAME}
 
 re: fclean all
+bonus: .bonus
 
-bonus: ${BONUS_OBJS}
-
-${BONUS_OBJS}: ${BONUS}
-	${CC} ${CFLAGS} -c $< -o $@
-	${AR} ${NAME} $@
+		
+.bonus: $(OBJS) $(BONUS_OBJS)
+		$(AR) $(NAME) $(OBJS) $(BONUS_OBJS)
+		@touch .bonus
 .PHONY: all clean fclean re bonus
