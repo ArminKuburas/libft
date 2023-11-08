@@ -41,7 +41,7 @@ int	main()
 
 	printf("Testing calloc with count = %zu, size = %zu:\n", count, size);
 
-	int	*standard_calloc_result = (int*)calloc(count, size);
+	int	*standard_calloc_result = (int *)calloc(count, size);
 	if (standard_calloc_result)
 	{
 		printf("Standard calloc result: Memory allocated.\n");
