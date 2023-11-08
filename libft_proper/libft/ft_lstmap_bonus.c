@@ -6,37 +6,17 @@
 /*   By: akuburas <akuburas@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 10:18:40 by akuburas          #+#    #+#             */
-/*   Updated: 2023/11/01 12:31:06 by akuburas         ###   ########.fr       */
+/*   Updated: 2023/11/08 06:32:07 by akuburas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static t_list	*cnn(void *content, void *(*f)(void *), void (*del)(void *))
-{
-	t_list	*new_node;
-	void	*new_content;
-
-	new_content = NULL;
-	if (content)
-	{
-		new_content = f(content);
-		if (new_content == NULL)
-			return (NULL);
-	}
-	new_node = ft_lstnew(new_content);
-	if (new_node == NULL)
-	{
-		del(new_content);
-		return (NULL);
-	}
-	return (new_node);
-}
-
 t_list	*ft_lstmap(t_list *lst, void *(f)(void *), void (*del)(void *))
 {
 	t_list	*new_list;
 	t_list	*new_node;
+	void	*new_content;
 
 	new_list = NULL;
 	new_node = NULL;
@@ -44,9 +24,11 @@ t_list	*ft_lstmap(t_list *lst, void *(f)(void *), void (*del)(void *))
 		return (NULL);
 	while (lst != NULL)
 	{
-		new_node = cnn(lst->content, f, del);
+		new_content = f(lst->content);
+		new_node = ft_lstnew(new_content);
 		if (new_node == NULL)
 		{
+			del(new_content);
 			ft_lstclear(&new_list, del);
 			return (NULL);
 		}
